@@ -1,0 +1,27 @@
+ body {
+      background: #fafafa;
+    }
+    .brand-logo {
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,.35);
+    }
+    .hero-content {
+      position: relative; z-index: 2; padding: 6rem 0 4rem;
+    }
+    .post-card .card-title {
+      line-height: 1.1;
+    }
+    .chip { cursor: pointer; }
+    .tag-cloud .chip { margin: .25rem; }
+    .sticky-action .card-action { position: sticky; bottom: 0; background: #fff; }
+    .footer-copyright { background: rgba(0,0,0,.08); }
+    .avatar {
+      width: 32px; height: 32px; border-radius: 50%; object-fit: cover; margin-right: .5rem;
+    }
+    .category-badge { position: absolute; top: .75rem; left: .75rem; }
+    .card .card-image img { aspect-ratio: 16/9; object-fit: cover; }
+    /* Back-to-top button spacing on mobile FAB */
+    @media(max-width: 600px) { .fixed-action-btn { bottom: 24px; right: 16px; } }
