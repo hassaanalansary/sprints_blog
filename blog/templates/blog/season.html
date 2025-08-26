@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block body %}
+
+{% if season %}
+<article id="post" class="section">
+    <h3>{{ season.title }}</h3>
+    <p class="grey-text">By Author • Jul 1, 2025 • 7 min read</p>
+    <img class="responsive-img z-depth-1" src="https://picsum.photos/1200/630" alt="Cover" />
+    <p class="flow-text">{{season.body|truncatechars:25}}</p>
+    <p>{{ season.body }}</p>
+    {% lorem 3 p %}
+</article>
+{% else %}
+<h1> Unsupported Season </h1>
+{% endif %}
+{% endblock %}

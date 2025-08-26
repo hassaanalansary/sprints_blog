@@ -1,0 +1,112 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprints Blog</title>
+    <!-- Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="{% static 'blog/base.css'%}" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar-fixed">
+        <nav class="teal lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#home" class="brand-logo">Sprints Blog</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger" aria-label="Open navigation"><i
+                        class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Sidenav -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#home"><i class="material-icons">home</i>Home</a></li>
+        <li><a href="#contact"><i class="material-icons">mail</i>Contact</a></li>
+    </ul>
+    <main class="container" style="margin-top:2rem;">
+        <div class="row">
+            <section id="latest" class="col s12 m8">
+            {% block body %}
+            {% endblock %}
+            </section>
+            <!-- Sidebar -->
+            <aside class="col s12 m4">
+                <!-- Profile Card -->
+                <div class="card hoverable">
+                    <div class="card-content">
+                        <div class="valign-wrapper" style="margin-bottom:.5rem;">
+                            <img class="avatar" src="https://i.pravatar.cc/64?img=3" alt="Avatar" />
+                            <span class="card-title" style="margin:0;">Hassaan</span>
+                        </div>
+                        <p>Developer • MBA • Curious mind. Writing about backend craft.</p>
+                    </div>
+                    <div class="card-action"><a href="#about" class="teal-text text-darken-2">About Me</a></div>
+                </div>
+
+                <!-- Categories -->
+                <div id="categories" class="card hoverable">
+                    <div class="card-content">
+                        <span class="card-title">Categories</span>
+                        <div class="tag-cloud">
+                            <div class="chip">Design</div>
+                            <div class="chip">Development</div>
+                            <div class="chip">Django</div>
+                            <div class="chip">APIs</div>
+                            <div class="chip">Product</div>
+                            <div class="chip">Lifestyle</div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+    <!-- ABOUT & CONTACT SECTIONS -->
+    <section id="about" class="section container">
+        <h5 class="teal-text text-darken-2">About</h5>
+        <p class="flow-text">This blog shares practical notes, templates, and case studies at the intersection of
+            software and management.</p>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="page-footer teal lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5 class="white-text">Sprints Blog</h5>
+                    <p class="grey-text text-lighten-4">Built with Materialize. Customize and deploy anywhere.</p>
+                </div>
+                <div class="col s12 m4 offset-m2">
+                    <h6 class="white-text">Links</h6>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#contact">Contact</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#home">Back to top</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © <span id="year"></span> Sprints Blog. All rights reserved.
+                <a class="grey-text text-lighten-4 right" href="#home"><i
+                        class="material-icons tiny">arrow_upward</i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
