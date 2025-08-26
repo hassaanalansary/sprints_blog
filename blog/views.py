@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.urls import reverse 
+from django.http import Http404
 from django.shortcuts import redirect
 seasons = {
     "fall": {
@@ -30,16 +29,15 @@ def contact_us(request):
 def blog_season(request, season: str):
     content = seasons.get(season)
     if content is None:
-        status = 404
-    else:
-        status = 200
-    return render(request, "blog/season.html", context={"season": content}, status= status)
+        raise Http404()
+    
+    return render(request, "blog/season.html", context={"season": content})
 
 def blog_season_by_number(request, season:int):
     season_keys = list(seasons.keys())
 
     if season >= len(season_keys):
-        return render(request, "blog/season.html", status = 404)     
+        raise Http404()
     season_key  = season_keys[season]
 
     return redirect("blog-season" , season = season_key)

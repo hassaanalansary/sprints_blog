@@ -1,0 +1,17 @@
+{% extends 'blog/base.html'%}
+
+{% block body%}
+<main class="container center-align valign-wrapper" style="flex:1;">
+    <div class="row" style="width:100%;">
+      <div class="col s12">
+        <h1 class="teal-text text-darken-4" style="font-size:8rem;">404</h1>
+        <p class="flow-text grey-text text-darken-2">
+          Oops! The page you’re looking for doesn’t exist.
+        </p>
+        <a href="{% url 'blog-home' %}" class="btn-large waves-effect waves-light teal darken-2">
+          <i class="material-icons left">home</i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+{% endblock %}
