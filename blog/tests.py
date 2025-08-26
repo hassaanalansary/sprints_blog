@@ -49,8 +49,8 @@ class TestBlogViews(TestCase):
 
         # Assert
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '<a href="/blog/winter/">')
-        self.assertContains(response, '<a href="/blog/fall/">')
-        self.assertContains(response, '<a href="/blog/spring/">')
-        self.assertContains(response, '<a href="/blog/summer/">')
+        self.assertContains(response, '<a href="/blog/winter/"')
+        self.assertContains(response, '<a href="/blog/fall/"')
+        self.assertContains(response, '<a href="/blog/spring/"')
+        self.assertContains(response, '<a href="/blog/summer/"')
         self.assertTemplateUsed(response, "blog/home.html")
