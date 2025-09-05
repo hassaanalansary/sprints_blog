@@ -82,3 +82,4 @@ media/
 worker.db.db
 coverage.xml
 *.pkl
+*.sqlite3
