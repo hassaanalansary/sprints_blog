@@ -1,24 +1,24 @@
 {% extends "blog/base.html" %}
 {% block body %}
 <ul>
-    {% for season, season_dict in seasons.items %}
+    {% for post in posts %}
     <li>
-        <a href="{% url 'blog-season' season %}" style="text-decoration: none; color: inherit;">
+        <a href="{% url 'blog-season-by-number' post.id %}" style="text-decoration: none; color: inherit;">
             <article class="card post-card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://picsum.photos/960/540?random={{forloop.counter}}" alt="Post cover" />
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{season_dict.title}}</span>
-                    <p class="grey-text">Aug 25, 2025 • 8 min read</p>
-                    <p><span class="grey-text">By:</span> Jane Doe</p>
+                    <span class="card-title activator grey-text text-darken-4">{{post.title}}</span>
+                    <p class="grey-text">{{post.created_at|date:"d M Y"}} • 8 min read</p>
+                    <p><span class="grey-text">By:</span> {{post.author.name}}</p>
                     <img class="avatar right" src="https://i.pravatar.cc/64?img=5" alt="Author" />
                     <div class="chips">
                         <div class="chip">Django</div>
                         <div class="chip">Versioning</div>
                         <div class="chip">Testing</div>
                     </div>
-                    <p>{{season_dict.body|truncatechars:50}}</p>
+                    <p>{{post.body|truncatechars:50}}</p>
                 </div>
             </article>
         </a>

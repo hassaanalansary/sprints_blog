@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.shortcuts import redirect
+from blog.models import Post
 seasons = {
     "fall": {
         "title": "🍁 Fall",
@@ -20,7 +21,8 @@ seasons = {
     },
 }
 def blog_home(request):
-    return render(request, "blog/home.html", context={"seasons": seasons})
+    posts = Post.objects.all()
+    return render(request, "blog/home.html", context={"posts": posts})
 
 def contact_us(request):
     return render(request, "blog/contact_us.html")
