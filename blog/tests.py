@@ -11,7 +11,7 @@ class TestBlogViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "❄️ Winter")
         self.assertContains(response, "A hush falls over the world")
-        self.assertTemplateUsed(response, "blog/season.html")
+        self.assertTemplateUsed(response, "blog/post.html")
 
     def test_blog_season_when_season_does_not_exist_should_return_404(self):
         # Arrange

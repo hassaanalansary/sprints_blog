@@ -2,24 +2,7 @@ from django.shortcuts import render
 from django.http import Http404
 from django.shortcuts import redirect
 from blog.models import Post
-seasons = {
-    "fall": {
-        "title": "🍁 Fall",
-        "body": "The air turns crisp, leaves ablaze in fiery hues, as we welcome cozy sweaters and warm pumpkin spice everything.",
-    },
-    "winter": {
-        "title": "❄️ Winter",
-        "body": "A hush falls over the world, blanketed in white, perfect for snuggling by the fire with a good book and a steaming cup of cocoa.",
-    },
-    "spring": {
-        "title": "🌱 Spring",
-        "body": "The earth awakens with a burst of life; vibrant flowers bloom, and the sweet scent of new beginnings fills the refreshing air.",
-    },
-    "summer": {
-        "title": "☀️ Summer",
-        "body": "Long, sun-drenched days stretch into balmy nights, inviting lazy afternoons, beach trips, and the joy of simple, carefree adventures.",
-    },
-}
+
 def blog_home(request):
     posts = Post.objects.all()
     return render(request, "blog/home.html", context={"posts": posts})
@@ -28,18 +11,18 @@ def contact_us(request):
     return render(request, "blog/contact_us.html")
 
 
-def blog_season(request, season: str):
-    content = seasons.get(season)
-    if content is None:
+def blog_post(request, slug: str):
+    try:
+        post = Post.objects.get(slug=slug)
+    except Post.DoesNotExist:
         raise Http404()
     
-    return render(request, "blog/season.html", context={"season": content})
+    return render(request, "blog/post.html", context={"post": post})
 
-def blog_season_by_number(request, season:int):
-    season_keys = list(seasons.keys())
-
-    if season >= len(season_keys):
+def blog_post_by_number(request, post_id:int):
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
         raise Http404()
-    season_key  = season_keys[season]
 
-    return redirect("blog-season" , season = season_key)
+    return redirect("blog-post" , slug = post.slug)

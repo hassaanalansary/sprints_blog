@@ -3,7 +3,7 @@
 <ul>
     {% for post in posts %}
     <li>
-        <a href="{% url 'blog-season-by-number' post.id %}" style="text-decoration: none; color: inherit;">
+        <a href="{% url 'blog-post-by-number' post.id %}" style="text-decoration: none; color: inherit;">
             <article class="card post-card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://picsum.photos/960/540?random={{forloop.counter}}" alt="Post cover" />
