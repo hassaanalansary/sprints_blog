@@ -25,3 +25,8 @@
     .card .card-image img { aspect-ratio: 16/9; object-fit: cover; }
     /* Back-to-top button spacing on mobile FAB */
     @media(max-width: 600px) { .fixed-action-btn { bottom: 24px; right: 16px; } }
+    
+    .helptext {
+      color:rgba(0,0,0, 0.54);
+      font-size: 0.8rem;
+    }
