@@ -37,8 +37,17 @@
     <main class="container" style="margin-top:2rem;">
         <div class="row">
             <section id="latest" class="col s12 m8">
-            {% block body %}
-            {% endblock %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert card green white-text">
+                            <div class="card-content">
+                                <p><i class="material-icons left">check_circle</i> {{message}}</p>
+                            </div>
+                        </div>
+                    {% endfor%}
+                {% endif %}
+                {% block body %}
+                {% endblock %}
             </section>
             <!-- Sidebar -->
             <aside class="col s12 m4">

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from users.models import User
-
+from django.contrib import messages
 class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
@@ -18,6 +18,7 @@ def register(request):
             user = User(username=username, name=name, email=email)
             user.set_password(password)
             user.save()
+            messages.success(request, "User Created Successfully")
             return redirect("blog-home")
     form = UserRegistrationForm()
     return render(request, 'users/register.html', context={'form': form})
