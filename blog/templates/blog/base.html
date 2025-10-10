@@ -39,11 +39,31 @@
             <section id="latest" class="col s12 m8">
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert card green white-text">
-                            <div class="card-content">
-                                <p><i class="material-icons left">check_circle</i> {{message}}</p>
+                        {% if message.tags == "success" %}
+                            <div class="alert card green white-text">
+                                <div class="card-content">
+                                    <p><i class="material-icons left">check_circle</i> {{message}}</p>
+                                </div>
                             </div>
-                        </div>
+                        {% elif message.tags == "warning" %}
+                            <div class="alert card yellow white-text">
+                                <div class="card-content">
+                                    <p><i class="material-icons left">report_problem</i> {{message}}</p>
+                                </div>
+                            </div>
+                        {% elif message.tags == "error" %}
+                            <div class="alert card red white-text">
+                                <div class="card-content">
+                                    <p><i class="material-icons left">report</i> {{message}}</p>
+                                </div>
+                            </div>
+                        {% elif message.tags == "info" %}
+                            <div class="alert card blue white-text">
+                                <div class="card-content">
+                                    <p><i class="material-icons left">info</i> {{message}}</p>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endfor%}
                 {% endif %}
                 {% block body %}
