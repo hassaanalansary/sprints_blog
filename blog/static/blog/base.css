@@ -30,3 +30,8 @@
       color:rgba(0,0,0, 0.54);
       font-size: 0.8rem;
     }
+        
+    .errorlist {
+      color:rgba(255,0,0, 0.54);
+      font-size: 0.8rem;
+    }

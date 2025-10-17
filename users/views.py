@@ -20,5 +20,6 @@ def register(request):
             user.save()
             messages.success(request, "User Created Successfully")
             return redirect("blog-home")
-    form = UserRegistrationForm()
+    else:
+        form = UserRegistrationForm()
     return render(request, 'users/register.html', context={'form': form})
