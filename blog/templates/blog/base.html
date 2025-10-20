@@ -24,6 +24,19 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{% url 'blog-home' %}">Home</a></li>
                     <li><a href="{% url 'contact-us' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-flat btn-large white-text" style="text-transform: capitalize;">
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -72,16 +85,18 @@
             <!-- Sidebar -->
             <aside class="col s12 m4">
                 <!-- Profile Card -->
+                 {% if user.is_authenticated %}
                 <div class="card hoverable">
                     <div class="card-content">
                         <div class="valign-wrapper" style="margin-bottom:.5rem;">
                             <img class="avatar" src="https://i.pravatar.cc/64?img=3" alt="Avatar" />
-                            <span class="card-title" style="margin:0;">Hassaan</span>
+                            <span class="card-title" style="margin:0;">{{ user.name }}</span>
                         </div>
-                        <p>Developer • MBA • Curious mind. Writing about backend craft.</p>
+                        <p>@{{user.username}}</p>
                     </div>
-                    <div class="card-action"><a href="#about" class="teal-text text-darken-2">About Me</a></div>
+                    <div class="card-action"><a href="{% url 'profile' %}" class="teal-text text-darken-2">Profile</a></div>
                 </div>
+                {% endif %}
 
                 <!-- Categories -->
                 <div id="categories" class="card hoverable">

@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block body %}
+    <main class="container">
+        <div class="row">
+            <form method="POST" class="col s12">
+                {% csrf_token %}
+                <div class=section>
+                    <h3 class="center-align teal-text text-darken-3"> Sign In </h3>
+                    <div class="divider"></div>
+                    
+                        {{form}}
+                    
+                </div>
+                <div class="row center-align">
+                    <button class="btn teal" type="submit">Login</button>
+                </div>
+            </form>
+            <div class="section center-align">
+                <small class="grey-text text-darken-1">
+                    Want to register? <a href="{% url 'register' %}" class="teal-text text-darken-2">Register</a>
+                </small>
+            </div>
+        </div>
+    </main>
+{% endblock%}
