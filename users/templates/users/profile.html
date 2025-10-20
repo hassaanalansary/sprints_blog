@@ -2,8 +2,17 @@
 {% block body %}
     <main class="container">
         <div class="row">
-            <h3>{{user.name}}</h3>
-            <p>{{user.username}}</p>
+           <div class="col s12 m4 center">
+                <img src="{{user.profile_image.url}}" alt="Profile Image" class="circle responsive-img", style="width: 150; height: 150px; object-fit: cover;">
+           </div>
+           <div class="col s12 m8">
+            <h4 class="teal-text text-darken-2">{{user.name}}</h4>
+            <p class="grey-text">@{{user.username}}</p>
+            <div class="valign-wrapper">
+                <i class="material-icons teal-text">email</i>
+                <p><strong>Email</strong> {{user.email}}</p>
+            </div>
+           </div>
 
         </div>
     </main>

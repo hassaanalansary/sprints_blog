@@ -6,3 +6,4 @@ class User(AbstractUser):
     first_name = None
     last_name = None
     name = models.CharField(max_length=150)
+    profile_image = models.ImageField(upload_to="profile_images/", default="profile_images/default.png")
