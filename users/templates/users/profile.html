@@ -6,12 +6,17 @@
                 <img src="{{user.profile_image.url}}" alt="Profile Image" class="circle responsive-img", style="width: 150; height: 150px; object-fit: cover;">
            </div>
            <div class="col s12 m8">
-            <h4 class="teal-text text-darken-2">{{user.name}}</h4>
-            <p class="grey-text">@{{user.username}}</p>
-            <div class="valign-wrapper">
-                <i class="material-icons teal-text">email</i>
-                <p><strong>Email</strong> {{user.email}}</p>
-            </div>
+                <h4 class="teal-text text-darken-2">{{user.name}}</h4>
+                <p class="grey-text">@{{user.username}}</p>
+                <div class="valign-wrapper">
+                    <i class="material-icons teal-text">email</i>
+                    <p><strong>Email</strong> {{user.email}}</p>
+                </div>
+                <div class="section">
+                    <a href="{% url 'edit-profile' %}" class="btn waves-effect waves-light teal darken-2">
+                        <i class="material-icons left">edit</i> Edit Profile
+                    </a>
+                </div>
            </div>
 
         </div>

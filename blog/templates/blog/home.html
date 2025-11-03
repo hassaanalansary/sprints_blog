@@ -12,7 +12,7 @@
                     <span class="card-title activator grey-text text-darken-4">{{post.title}}</span>
                     <p class="grey-text">{{post.created_at|date:"d M Y"}} • 8 min read</p>
                     <p><span class="grey-text">By:</span> {{post.author.name}}</p>
-                    <img class="avatar right" src="https://i.pravatar.cc/64?img=5" alt="Author" />
+                    <img class="avatar right" src="{{post.author.profile_image.url}}" alt="Author" />
                     <div class="chips">
                         <div class="chip">Django</div>
                         <div class="chip">Versioning</div>

@@ -89,7 +89,7 @@
                 <div class="card hoverable">
                     <div class="card-content">
                         <div class="valign-wrapper" style="margin-bottom:.5rem;">
-                            <img class="avatar" src="https://i.pravatar.cc/64?img=3" alt="Avatar" />
+                            <img class="avatar" src="{{user.profile_image.url}}" alt="Avatar" />
                             <span class="card-title" style="margin:0;">{{ user.name }}</span>
                         </div>
                         <p>@{{user.username}}</p>
@@ -118,8 +118,8 @@
     </main>
     <!-- ABOUT & CONTACT SECTIONS -->
     <section id="about" class="section container">
-        <h5 class="teal-text text-darken-2">About</h5>
-        <p class="flow-text">This blog shares practical notes, templates, and case studies at the intersection of
+        <p class="teal-text text-darken-2">About</p>
+        <p>This blog shares practical notes, templates, and case studies at the intersection of
             software and management.</p>
     </section>
 
