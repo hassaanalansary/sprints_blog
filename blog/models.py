@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -15,3 +16,6 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self)->str:
+        return reverse("blog-post", kwargs={"slug":self.slug})
